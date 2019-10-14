@@ -5,11 +5,12 @@ LABEL version="1.0"
 WORKDIR /data/qrcode/
 
 COPY Makefile .
+COPY go.mod .
 COPY src src
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \ 
 	&& apk update && apk add git tree \
-	&& tree -L 3 && export GOPATH=/data/qrcode/ && go build qrcode \
+	&& tree -L 3 && export GOPATH=/data/qrcode/ && make build \
 	&& rm -rf /var/lib/apk/*
 
 FROM alpine:3.9 as prod
