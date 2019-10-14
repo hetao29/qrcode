@@ -1,0 +1,14 @@
+github.com/SKatiyar/qr v0.0.0-20151201054752-25b6bdf44e67 h1:x98/gnpyNAiuvg/gX3KgdfKxnZj3t9pIl3BCVJg3qwg=
+github.com/SKatiyar/qr v0.0.0-20151201054752-25b6bdf44e67/go.mod h1:g1VZ0nbzBvfsWw22gNVOxWxJxpBR+CBiFNK2n2ogeUo=
+github.com/disintegration/imaging v1.6.1 h1:JnBbK6ECIZb1NsWIikP9pd8gIlTIRx7fuDNpU9fsxOE=
+github.com/disintegration/imaging v1.6.1/go.mod h1:xuIt+sRxDFrHS0drzXUlCJthkJ8k7lkkUojDSR247MQ=
+github.com/hetao29/qr v0.0.0-20151201054752-25b6bdf44e67 h1:A8Adf0Trhyr9pCGlkgrHvUtahojmyHTwcHpY/4CcDPo=
+github.com/hetao29/qr v0.0.0-20151201054752-25b6bdf44e67/go.mod h1:jwmr6xT0pEvre5gE13w1Rka/meyv/oaEfKFZ3QDg23E=
+github.com/nfnt/resize v0.0.0-20180221191011-83c6a9932646 h1:zYyBkD/k9seD2A7fsi6Oo2LfFZAehjjQMERAvZLEDnQ=
+github.com/nfnt/resize v0.0.0-20180221191011-83c6a9932646/go.mod h1:jpp1/29i3P1S/RLdc7JQKbRpFeM1dOBd8T9ki5s+AY8=
+github.com/rsc/qr v0.2.0 h1:tH61+huiZvu+hXL1VUovAu2AnhdG4eJQk2+on3XsDBQ=
+github.com/rsc/qr v0.2.0/go.mod h1:IF+uZjkb9fqyeF/4tlBoynqmQxUoPfWEKh921coOuXs=
+golang.org/x/image v0.0.0-20180708004352-c73c2afc3b81 h1:00VmoueYNlNz/aHIilyyQz/MHSqGoWJzpFv/HW8xpzI=
+golang.org/x/image v0.0.0-20180708004352-c73c2afc3b81/go.mod h1:ux5Hcp/YLpHSI86hEcLt0YII63i6oz57MZXIpbrjZUs=
+rsc.io/qr v0.2.0 h1:6vBLea5/NRMVTz8V66gipeLycZMl/+UlFmk8DvqQ6WY=
+rsc.io/qr v0.2.0/go.mod h1:IF+uZjkb9fqyeF/4tlBoynqmQxUoPfWEKh921coOuXs=
