@@ -10,7 +10,7 @@ COPY src src
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \ 
 	&& apk update && apk add git tree \
-	&& tree -L 3 && export GOPATH=/data/qrcode/ && make build \
+	&& tree -L 3 && export GOPATH=/data/qrcode/ && cd src/qrcode && go build -o ../../bin/qrcode . \
 	&& rm -rf /var/lib/apk/*
 
 FROM alpine:3.9 as prod
