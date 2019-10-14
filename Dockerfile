@@ -1,4 +1,4 @@
-FROM golang:1.12-alpine as builder
+FROM golang:1.13-alpine3.10 as builder
 LABEL maintainer="hetal<hetao@hetao.name>"
 LABEL version="1.0"
 
