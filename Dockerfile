@@ -1,19 +1,17 @@
-FROM golang:1.13-alpine3.10 as builder
+FROM golang:1.17-alpine as builder
 LABEL maintainer="hetal<hetao@hetao.name>"
 LABEL version="1.0"
 
 WORKDIR /data/qrcode/
 
-COPY Makefile .
-COPY go.mod .
-COPY src src
+COPY . .
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \ 
 	&& apk update && apk add tree \
-	&& tree -L 5 && cd src/qrcode && go build -o ../../bin/qrcode . \
+	&& tree -L 5 && export GOPROXY=https://goproxy.cn && go build -o bin/qrcode \
 	&& rm -rf /var/lib/apk/*
 
-FROM alpine:3.10 as prod
+FROM alpine:3.14 as prod
 
 RUN apk --no-cache add ca-certificates
 
@@ -22,8 +20,7 @@ WORKDIR /data/qrcode/
 RUN mkdir bin
 COPY --from=0 /data/qrcode/bin/qrcode bin/
 
-HEALTHCHECK --interval=5m --timeout=3s CMD curl -f http://localhost/ || exit 1
+HEALTHCHECK --interval=5s --timeout=5s --retries=3 \
+    CMD ps aux | grep "qrcode" | grep -v "grep" > /dev/null; if [ 0 != $? ]; then exit 1; fi
 
-EXPOSE 80/tcp
-
-CMD ["/data/qrcode/bin/qrcode"]
+CMD ["/data/qrcode/bin/qrcode", "-b" , "0.0.0.0:80"]
