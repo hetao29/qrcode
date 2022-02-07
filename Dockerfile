@@ -1,17 +1,22 @@
+#first build
 FROM golang:1.17-alpine as builder
 LABEL maintainer="hetal<hetao@hetao.name>"
 LABEL version="1.0"
 
 WORKDIR /data/qrcode/
 
-COPY . .
+ENV GOPROXY=https://goproxy.cn,direct
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \ 
-	&& apk update && apk add tree \
-	&& tree -L 5 && export GOPROXY=https://goproxy.cn && go build -o bin/qrcode \
-	&& rm -rf /var/lib/apk/*
+	&& apk update && apk add tree
 
-FROM alpine:3.14 as prod
+COPY . .
+
+RUN	--mount=type=cache,target=/root/.cache/go-build \
+	--mount=type=cache,target=/go/pkg/mod \
+	go build -v -ldflags "-X main.version=1.0.0 -X main.build=`date -u +%Y-%m-%d%H:%M:%S`" -o bin/qrcode
+
+FROM alpine:3.15 as prod
 
 RUN apk --no-cache add ca-certificates
 

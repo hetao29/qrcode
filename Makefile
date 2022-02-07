@@ -5,6 +5,8 @@ start:
 stop:
 	killall qrcode
 docker-image:
-	docker build -t hetao29/qrcode .
+	DOCKER_BUILDKIT=1 docker build -t hetao29/qrcode .
+docker-image-nocache:
+	DOCKER_BUILDKIT=1 docker build --no-cache -t hetao29/qrcode .
 docker-push:
 	docker push hetao29/qrcode:latest
