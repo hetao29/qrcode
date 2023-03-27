@@ -1,4 +1,4 @@
-package github.com/hetao29/qrcode/qr/qr
+package qr
 
 import (
 	"image"
