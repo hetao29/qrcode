@@ -1,3 +1,3 @@
-github.com/hetao29/qrcode/qr/qr
+module github.com/hetao29/qrcode/
 
 go 1.20
